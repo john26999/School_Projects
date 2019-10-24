@@ -1,0 +1,127 @@
+#include <iostream>
+#include <cstdlib>
+#include <string>
+#include <ctime>
+
+using namespace std;
+
+int main()
+{
+
+int randNum, uAns5 = 0;
+int a=0, b=0, guessAns = 0;
+char Y, N, Yes, YES, No, NO;
+char answer, uAns1 [25], uAns2  [25], uAns3, uAns4;
+bool conToPlay = true;
+bool victor = false;
+srand(time (NULL));
+randNum = rand() %100 +1;
+char ques1 [] = "What is your First Name? \n\n";
+char ques1a [] = "What is your last Name? \n\n";
+char ques1b [] = "Shall we play a game ";
+char ques1c [] = "Here are the rules, you are required to guess one number between 1 - 100. \n";
+char ques1d [] = "If you guess incorrectly a message will give you a clue as to whether you have guessed higher or lower that the number. \n";
+char ques1e [] = "If you guess correctly then you are the victor and should shout it from the roof tops. \n";
+char ques1f [] = "If you give up without correctly guessing the number than you lose and should bow your head in shame. \n";
+char ques1g [] = "So, shall we play a game?? [Y or N]? \n";
+char ques1h [] = "Please pick one number only between 1 - 100. \n";
+char ques1i [] = "The number you have picked is high. Please try again!! \n";
+char ques1j [] = "The number you have picked is low. Please try again!! \n";
+char ques1k [] = "The number you have picked is correct. So rejoice in your triumph and go get a cookie!! \n";
+char ques1l [] = "You have picked a number higher than 100 or lower than 0. \n";
+char ques1m [] = "Please pick one number only between 1 - 100 and try again. \n";
+
+        cout<<"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+        cout<<"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+        cout<<"++++++++++++++++                                          ++++++++++++++++\n";
+        cout<<"++++++++                                                          ++++++++\n";
+        cout<<"++++                                                                  ++++\n";
+        cout<<"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+        cout<<"++============= Welcome to 'I AM STEALING YOUR SOUL' Game!==============++\n";
+        cout<<"++======================================================================++\n";
+        cout<<"++====Please follow the instructions on the next screen to continue=====++\n";
+        cout<<"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+        cout<<"++++                                                                  ++++\n";
+        cout<<"++++++++                                                          ++++++++\n";
+        cout<<"++++++++++++                                                  ++++++++++++\n";
+        cout<<"++++++++++++++++                                          ++++++++++++++++\n";
+        cout<<"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+        cout<<"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n";
+
+        cout << ques1;
+        cin >> uAns1;
+        cout <<ques1a;
+        cin >> uAns2;
+        cout << ques1b << uAns1 << " " << uAns2 << "?" << " [Y or N] \n\n";
+        cin >> uAns3;
+            if (uAns3 == 'Y' || uAns3 == 'y' || uAns3 == 'Yes' || uAns3 == 'YES')  //++== beginning of the decision 'if/else' statement.==++//
+            {
+                while (conToPlay)
+                {
+                    cout << ques1c;
+                    cout << ques1d;
+                    cout << ques1e;
+                    cout << ques1f;
+                    cout << ques1g;
+                    cin >> uAns4;
+
+                    if (uAns4 == 'Y' || uAns4 == 'y' || uAns4 == 'Yes' || uAns4 == 'YES')  //++== beginning of the decision 'if/else' statement.==++//
+                    {
+                            cout << ques1h;
+                            cin >> uAns5;
+                        do {
+                        if (uAns5 >= 101 || uAns5 <= 0)
+                        {
+                            cout << ques1l;
+                            cout << "The NUMBER you chose was: " << uAns5 << ". \n";
+                            cout << ques1m;
+                            break;
+
+                        }
+                        else if (uAns5 > randNum)
+                        {
+                            cout << ques1i;
+                            cout << "The NUMBER you chose was: " << uAns5 << ". \n";
+                            cout << ques1h;
+                            cin >> uAns5;
+
+                        }
+                        else if (uAns5 < randNum)
+                        {
+                            cout << ques1j;
+                            cout << "The NUMBER you chose was: " << uAns5 << ". \n";
+                            cout << ques1h;
+                            cin >> uAns5;
+
+                        }
+                        else if (uAns5 = randNum)
+                        {
+                            cout << ques1k;
+                            cout << "The magic number was: " <<randNum << ". \n";
+                            break;
+                        }
+
+                        }while (!victor);
+
+                            uAns5 = randNum;
+                            victor = randNum;
+
+                            cout << "CONGRATS, CONGRATS " << uAns1 <<" "<< uAns2 <<". \n";
+                            cout << "You are the smartest person alive !!!! \n";
+                            break;
+                    }
+                    else if (uAns4 == 'N' || uAns4 == 'n' || uAns4 == 'No' || uAns4 == 'NO')
+                    {
+                        cout << "Thanks for playing "<< uAns1<< " " << uAns2 << "! \n\n";
+                        cout << "We hope you have a wonderful day! \n\n";
+                        break;
+                    }
+                }
+                }
+                else if (uAns3 == 'N' || uAns3 == 'n' || uAns3 == 'No' || uAns3 == 'NO')
+                {
+                    cout << "Thanks for playing "<< uAns1<< " " << uAns2 << "! \n\n";
+                    cout << "We hope you have a wonderful day! \n\n";
+                }
+    return 0;
+}
