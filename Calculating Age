@@ -1,0 +1,26 @@
+#include <iostream>
+
+//(1) The name of the program: In Class Assignment 2 (Calculating Age)//
+//(2) The name of the programmer: John Wilson//
+//(3) The date of the program: 04 Mar 2019//
+//(4) A brief description of the purpose of the program. Calculating Age Program//
+
+
+using namespace std;
+
+    int x;                                     //This line is here to instruct the main function.//
+    int y;                                     //This line is here to instruct the main function.//
+    int sum;                                   //This line is here to instruct the main function.//
+
+int main()
+{
+        cout <<"enter current year" << endl;   //This line asks the participant to enter the current year//
+        cin >> x;                              //This line is the variable for the current year//
+        cout <<"enter year of birth" << endl;  //This line asks the participant to enter their birth year.//
+        cin >> y;                              //This line is the variable for the year of birth.//
+        sum = x-y;                             //This line is instructs the computer to subtract the current year from the birth year.//
+        cout << "Age: " << sum << endl;        //This line is the output line that lists the word "Age" with the age.//
+
+
+    return 0;
+}
