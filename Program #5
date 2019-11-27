@@ -1,1 +1,157 @@
+// Program_5.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include "pch.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstring>
+#include <istream>
+#include <iomanip>
+
+using namespace std;
+
+
+void WelcomeScreenArt(/*OUT*/);
+
+// Prompt user for file name and return ifstream
+// Pre: inData &  outData declared
+// Post: inData contains valid ifstream for data file
+//       outData contains valid ofstream for data file
+void InOutFileInfo(/*INOUT*/ ifstream &inData, /*INOUT*/ ofstream &outData);
+
+//function will be used as an array for CourseInfo struct
+//Pre:
+//Post: 
+void CourseInfoArray();
+
+
+int main()
+{
+	CourseInfo course;
+	ifstream inData;              // Link to input file
+	ofstream outData;             //link to output file
+	string inFileName;            // string name for input file
+	string outFileName;           // string name for output file
+	string deleteLine;            // string name for output file
+	string deleteText;            // string name for output file
+	string lineIn;                //string to get the text from the file
+	string textIn[1000];         //string for textIn
+	int choice;                  //variable for the switch statement
+	int iD = 0;                 // Variable for the loop inside the switch statement-case1
+	int c;
+
+	//Call function to open the welcome screen
+	//WelcomeScreenArt(/*OUT*/);
+	// Call function to get/open the file
+	//InOutFileInfo(inData, outData);
+
+	CourseInfoArray();
+
+	return 0;
+}
+
+void WelcomeScreenArt(/*OUT*/) {
+
+	cout << "               TTTTTTTTTTT      CCCCCCCCCC       CCCCCCCCCC\n"
+		<< "               TTTTTTTTTTT     CCCCCCCCCC       CCCCCCCCCC\n"
+		<< "                  TTTTT      CCCCCC           CCCCCC\n"
+		<< "                  TTTTT     CCCCCC           CCCCCC\n"
+		<< "                  TTTTT      CCCCCC           CCCCCC\n"
+		<< "                  TTTTT       CCCCCCCCCCC      CCCCCCCCCCC\n"
+		<< "                  TTTTT         CCCCCCCCCC       CCCCCCCCCC \n";
+	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+	cout << "++============Welcome to the Most Incrediblist Course Viewer============++\n";
+	cout << "++========Where getting your course information is as easy as===========++\n";
+	cout << "++===========banging your head on the table in front of you=============++\n";
+	cout << "++======================================================================++\n";
+	cout << "++====Please follow the instructions on the next screen to continue=====++\n";
+	cout << "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n";
+	cout << "++++++++++++++++        ||||   ||||     ||||  ||||        ++++++++++++++++\n";
+	cout << "++++++++++++++++++++    ||||   ||||     ||||  ||||    ++++++++++++++++++++\n";
+	cout << "++++++++++++++++++++++++       ||||     ||||      ++++++++++++++++++++++++\n";
+	cout << "++++++++++++++++++++++++++++      ||||||      ++++++++++++++++++++++++++++\n";
+	cout << "++++++++++++++++++++++++++++++++  ||||||  ++++++++++++++++++++++++++++++++\n";
+}
+
+// Prompt user for file name and return ifstream
+// Pre: inData &  outData declared
+// Post: inData contains valid ifstream for data file
+//       outData contains valid ofstream for data file
+void InOutFileInfo(/*INOUT*/ ifstream &inData, /*INOUT*/ ofstream &outData) {
+
+	string inFileName;  // string name for input file
+	string outFileName;  // string name for output file
+	string line;        //string to get the text from the file
+
+	do {
+		// Prompt user for input file name and open file
+		cout << "Please enter the input file name. "
+			<< "HINT: the file name is 'inList.dat'. \n"
+			<< "Put the file name here:  \n";
+		cin >> inFileName;
+
+		inData.open(inFileName.c_str(), ios::app); //opens input file
+
+			//Checks to make sure the file is open
+		if (!inData) {
+			cout << "Unable to open input file.\n\n";
+		}
+		else {
+			cout << "Successfully opened input file! \n" << endl;
+		}
+
+	} while (!inData); // Loop until valid input file name provided
+
+	do {
+		outData.open(inFileName.c_str(), ios::app); //Opens output file
+
+		//Checks to make sure the file is open
+		if (!outData) {
+			cout << "Unable to open output file.";
+		}
+		else {
+			cout << "Successfully opened output file! \n" << endl;
+		}
+
+	} while (!outData); // Loop until valid output file name provided
+}
+
+void CourseInfoArray() {
+	
+	;
+	char Y, N;
+	char option;
+
+	do {
+		
+		cout << "Please enter the course information below: \n"; 
+		cout << "Enter campus location:  (choose either Chesapeake, Portsmouth, Suffolk, or Virginia Beach \n";
+		cin >> 
+		cout << "Enter the course ID: ";
+		cin >> course.data.courseID;
+		cout << "Enter course name: ";
+		cin >> course.data.courseName;
+		cout << "Enter building name: ";
+		cin >> course.location.buildingNumber;
+		cout << "Enter room number: ";
+		cin >> course.location.roomNumber;
+		cout << "Enter month(s): ";
+		cin >> course.time.months;
+		cout << "Enter class hour: ";
+		cin >> course.time.classHour;
+		cout << "Enter class minute :";
+		cin >> course.time.classMinute;
+		cout << "Enter Professor's first name: ";
+		cin >> course.name.professorFirstName;
+		cout << "Enter Professor's last name: ";
+		cin >> course.name.professorLastName;
+
+		cout << "Would you like to add a course? (Y or N)\n";
+		cin >> option;			
+
+		} while (option != 'N');
+
+		
+}
 
